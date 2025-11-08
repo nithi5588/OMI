@@ -38,12 +38,42 @@ export const ConversationProvider = ({ children }) => {
       const conversations = await storageService.loadConversations();
       setConversationHistory(conversations);
 
-      // If no current conversation, start a new one
-      if (!currentConversation && conversations.length === 0) {
-        startNewConversation();
+      // Always ensure we have a current conversation
+      // If no conversations exist, start a new one
+      // Otherwise, use the most recent conversation
+      if (conversations.length > 0) {
+        // Load the most recent conversation
+        setCurrentConversation(conversations[0]);
+      } else {
+        // Start a new conversation if none exist
+        const newConversation = {
+          id: generateConversationId(),
+          timestamp: new Date().toISOString(),
+          messages: [],
+          workflows: [],
+          metadata: {
+            totalMessages: 0,
+            mcpsUsed: [],
+            duration: 0,
+          },
+        };
+        setCurrentConversation(newConversation);
       }
     } catch (error) {
       console.error('Error loading conversation history:', error);
+      // Even on error, start a new conversation so the app is usable
+      const newConversation = {
+        id: generateConversationId(),
+        timestamp: new Date().toISOString(),
+        messages: [],
+        workflows: [],
+        metadata: {
+          totalMessages: 0,
+          mcpsUsed: [],
+          duration: 0,
+        },
+      };
+      setCurrentConversation(newConversation);
     } finally {
       setIsLoading(false);
     }
