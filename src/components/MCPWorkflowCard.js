@@ -181,17 +181,17 @@ const MCPWorkflowCard = ({ workflow }) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.CARD,
-    borderRadius: 12,
-    borderWidth: 1,
+    borderRadius: 16,
+    borderWidth: 2,
     borderColor: COLORS.PRIMARY,
-    marginVertical: 8,
-    marginHorizontal: 12,
+    marginVertical: 10,
+    marginHorizontal: 16,
     overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    shadowColor: COLORS.PRIMARY,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 5,
   },
 
   // Header
@@ -199,8 +199,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 12,
-    backgroundColor: COLORS.PRIMARY + '10',
+    padding: 16,
+    backgroundColor: COLORS.PRIMARY + '15',
   },
   headerLeft: {
     flexDirection: 'row',
@@ -208,42 +208,48 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   intentIcon: {
-    fontSize: 24,
-    marginRight: 8,
+    fontSize: 28,
+    marginRight: 12,
   },
   headerText: {
     flex: 1,
   },
   intentLabel: {
-    fontSize: 12,
+    fontSize: 11,
     color: COLORS.TEXT_SECONDARY,
-    marginBottom: 2,
+    marginBottom: 4,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   intentText: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 17,
+    fontWeight: '700',
     color: COLORS.PRIMARY,
+    letterSpacing: 0.2,
   },
   expandIcon: {
-    fontSize: 16,
+    fontSize: 18,
     color: COLORS.PRIMARY,
-    marginLeft: 8,
+    marginLeft: 12,
+    fontWeight: '700',
   },
 
   // Content
   content: {
-    padding: 12,
+    padding: 16,
   },
 
   // Section
   section: {
-    marginBottom: 16,
+    marginBottom: 20,
   },
   sectionTitle: {
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: 15,
+    fontWeight: '700',
     color: COLORS.TEXT_PRIMARY,
-    marginBottom: 8,
+    marginBottom: 12,
+    letterSpacing: 0.3,
   },
 
   // MCPs

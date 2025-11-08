@@ -18,7 +18,6 @@ import {
 } from 'react-native';
 import { useConversation } from '../context/ConversationContext';
 import { COLORS } from '../constants/colors';
-import { format } from 'date-fns';
 
 const HistoryScreen = ({ navigation }) => {
   const {
@@ -82,7 +81,14 @@ const HistoryScreen = ({ navigation }) => {
 
   const formatDate = (timestamp) => {
     try {
-      return format(new Date(timestamp), 'MMM d, yyyy • HH:mm');
+      const date = new Date(timestamp);
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const month = months[date.getMonth()];
+      const day = date.getDate();
+      const year = date.getFullYear();
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      return `${month} ${day}, ${year} • ${hours}:${minutes}`;
     } catch (error) {
       return '';
     }
@@ -268,14 +274,14 @@ const styles = StyleSheet.create({
   // Statistics
   statsContainer: {
     backgroundColor: COLORS.SURFACE,
-    margin: 12,
-    padding: 16,
-    borderRadius: 12,
+    margin: 16,
+    padding: 20,
+    borderRadius: 16,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.12,
+    shadowRadius: 5,
+    elevation: 4,
   },
   statsTitle: {
     fontSize: 16,
@@ -360,16 +366,16 @@ const styles = StyleSheet.create({
   // Conversation Card
   conversationCard: {
     backgroundColor: COLORS.SURFACE,
-    borderRadius: 12,
-    padding: 14,
-    marginBottom: 10,
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 12,
     borderWidth: 1,
     borderColor: COLORS.BORDER_LIGHT,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
-    elevation: 1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    elevation: 3,
   },
   conversationHeader: {
     flexDirection: 'row',

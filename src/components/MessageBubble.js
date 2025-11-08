@@ -6,7 +6,6 @@
 
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { format } from 'date-fns';
 import { COLORS } from '../constants/colors';
 
 const MessageBubble = ({ message }) => {
@@ -36,7 +35,10 @@ const MessageBubble = ({ message }) => {
 
   const formatTime = (timestamp) => {
     try {
-      return format(new Date(timestamp), 'HH:mm');
+      const date = new Date(timestamp);
+      const hours = date.getHours().toString().padStart(2, '0');
+      const minutes = date.getMinutes().toString().padStart(2, '0');
+      return `${hours}:${minutes}`;
     } catch (error) {
       return '';
     }
@@ -61,76 +63,82 @@ const styles = StyleSheet.create({
   userContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    marginVertical: 4,
-    marginHorizontal: 12,
+    marginVertical: 6,
+    marginHorizontal: 16,
   },
   aiContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    marginVertical: 4,
-    marginHorizontal: 12,
+    marginVertical: 6,
+    marginHorizontal: 16,
   },
   systemContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginVertical: 8,
-    marginHorizontal: 12,
+    marginVertical: 10,
+    marginHorizontal: 16,
   },
 
   // Bubble styles
   bubble: {
-    maxWidth: '75%',
-    paddingVertical: 10,
-    paddingHorizontal: 14,
-    borderRadius: 18,
+    maxWidth: '80%',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 20,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 3,
+    elevation: 3,
   },
   userBubble: {
     backgroundColor: COLORS.USER_MESSAGE_BG,
-    borderBottomRightRadius: 4,
+    borderBottomRightRadius: 6,
   },
   aiBubble: {
     backgroundColor: COLORS.AI_MESSAGE_BG,
     borderWidth: 1,
     borderColor: COLORS.BORDER_LIGHT,
-    borderBottomLeftRadius: 4,
+    borderBottomLeftRadius: 6,
   },
   systemBubble: {
     backgroundColor: COLORS.SYSTEM_MESSAGE_BG,
-    maxWidth: '85%',
+    maxWidth: '90%',
+    borderRadius: 16,
   },
 
   // Text styles
   messageText: {
     fontSize: 16,
-    lineHeight: 22,
+    lineHeight: 24,
+    letterSpacing: 0.3,
   },
   userText: {
     color: COLORS.USER_MESSAGE_TEXT,
+    fontWeight: '400',
   },
   aiText: {
     color: COLORS.AI_MESSAGE_TEXT,
+    fontWeight: '400',
   },
   systemText: {
     color: COLORS.SYSTEM_MESSAGE_TEXT,
-    fontSize: 14,
+    fontSize: 13,
     textAlign: 'center',
+    fontWeight: '500',
   },
 
   // Timestamp styles
   timestamp: {
-    fontSize: 11,
+    fontSize: 10,
     color: COLORS.TEXT_SECONDARY,
-    marginTop: 4,
+    marginTop: 6,
     alignSelf: 'flex-end',
+    fontWeight: '500',
   },
   userTimestamp: {
     color: COLORS.USER_MESSAGE_TEXT,
-    opacity: 0.7,
+    opacity: 0.8,
   },
 });
 

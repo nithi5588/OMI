@@ -4,44 +4,44 @@
  */
 
 export const COLORS = {
-  // Primary colors
-  PRIMARY: '#007AFF',
-  SECONDARY: '#34C759',
+  // Primary colors - More vibrant blue
+  PRIMARY: '#0A84FF',
+  SECONDARY: '#32D74B',
 
   // Status colors
-  SUCCESS: '#34C759',
-  WARNING: '#FF9500',
-  ERROR: '#FF3B30',
-  INFO: '#007AFF',
+  SUCCESS: '#32D74B',
+  WARNING: '#FF9F0A',
+  ERROR: '#FF453A',
+  INFO: '#0A84FF',
 
-  // Background colors
-  BACKGROUND: '#F2F2F7',
+  // Background colors - Softer backgrounds
+  BACKGROUND: '#F5F5F7',
   SURFACE: '#FFFFFF',
   CARD: '#FFFFFF',
 
-  // Text colors
-  TEXT_PRIMARY: '#000000',
+  // Text colors - Better contrast
+  TEXT_PRIMARY: '#1C1C1E',
   TEXT_SECONDARY: '#8E8E93',
   TEXT_TERTIARY: '#C7C7CC',
   TEXT_INVERSE: '#FFFFFF',
 
-  // Message bubble colors
-  USER_MESSAGE_BG: '#007AFF',
+  // Message bubble colors - More saturated
+  USER_MESSAGE_BG: '#0A84FF',
   USER_MESSAGE_TEXT: '#FFFFFF',
   AI_MESSAGE_BG: '#FFFFFF',
-  AI_MESSAGE_TEXT: '#000000',
+  AI_MESSAGE_TEXT: '#1C1C1E',
   SYSTEM_MESSAGE_BG: '#E5E5EA',
-  SYSTEM_MESSAGE_TEXT: '#8E8E93',
+  SYSTEM_MESSAGE_TEXT: '#636366',
 
-  // Border colors
-  BORDER: '#C6C6C8',
+  // Border colors - Subtle
+  BORDER: '#D1D1D6',
   BORDER_LIGHT: '#E5E5EA',
 
-  // MCP status colors
-  MCP_PENDING: '#C7C7CC',
-  MCP_IN_PROGRESS: '#007AFF',
-  MCP_COMPLETED: '#34C759',
-  MCP_FAILED: '#FF3B30',
+  // MCP status colors - Vibrant
+  MCP_PENDING: '#AEAEB2',
+  MCP_IN_PROGRESS: '#0A84FF',
+  MCP_COMPLETED: '#32D74B',
+  MCP_FAILED: '#FF453A',
 
   // Overlay colors
   OVERLAY: 'rgba(0, 0, 0, 0.4)',
